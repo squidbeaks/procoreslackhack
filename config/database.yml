@@ -52,10 +52,11 @@ test:
 
 production:
   adapter:  postgresql
-  host:     localhost
   encoding: unicode
-  database: procoreslackhack_production
-  pool:     5
-  username: procoreslacker
-  password: pr0c0re_db
   template: template0
+  pool:     5
+  host:     <%= ENV['RDS_HOSTNAME'] %>
+  database: <%= ENV['RDS_DB_NAME']  %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  port:     <%= ENV['RDS_PORT']     %>
